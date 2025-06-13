@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://p1khvxuhdnuv"]
+
+[ext_resource type="Script" uid="uid://b8to87nwmly6h" path="res://scripts/world/coffee.gd" id="1_6e6q2"]
+[ext_resource type="ArrayMesh" uid="uid://cx4a07w207k6t" path="res://assets/models/coffee.obj" id="1_exks8"]
+[ext_resource type="AudioStream" uid="uid://df3kmljmhafri" path="res://audios/effects/coin-recieved-230517.mp3" id="3_55via"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exks8"]
+
+[node name="Cafe" type="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.0786968, 0)
+script = ExtResource("1_6e6q2")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Cafe" type="MeshInstance3D" parent="Area3D"]
+mesh = ExtResource("1_exks8")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.13396, 0, 0, 0, 0.960267, 0, 0, 0, 0.960267, 0, 0.318556, 0)
+shape = SubResource("BoxShape3D_exks8")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_55via")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -0.0295258, 0.339526, 0.37378)
+light_color = Color(0.716296, 0.716296, 0.716296, 1)
+omni_range = 0.952824
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

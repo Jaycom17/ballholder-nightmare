@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b54cohqsm8lsn"
+path="res://.godot/imported/Mysthical theme.mp3-e6613d98d434336c98970e2452183d60.mp3str"
+
+[deps]
+
+source_file="res://audios/songs/Mysthical theme.mp3"
+dest_files=["res://.godot/imported/Mysthical theme.mp3-e6613d98d434336c98970e2452183d60.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

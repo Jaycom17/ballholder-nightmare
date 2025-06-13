@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bxcseufnqtmai"
+path.s3tc="res://.godot/imported/Ballholder Idle floating_One_mat_Normal.png-381ec08e1d1d4a782c6fea14da63f1fb.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "5f5931109a09edc283eeea6496c23f85"
+}
+
+[deps]
+
+source_file="res://textures/characters/ballholder/Ballholder Idle floating_One_mat_Normal.png"
+dest_files=["res://.godot/imported/Ballholder Idle floating_One_mat_Normal.png-381ec08e1d1d4a782c6fea14da63f1fb.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://Personajes/Ballholder Idle floating_One_mat_Normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

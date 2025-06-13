@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://niww5nfmn2wx"]
+
+[ext_resource type="Texture2D" uid="uid://cxdc3f08vqdgq" path="res://textures/Rock035_1K-JPG_Color.jpg" id="1_vrcn1"]
+[ext_resource type="Texture2D" uid="uid://b0u66sj65wspp" path="res://textures/Rock035_1K-JPG_NormalDX.jpg" id="2_egl4p"]
+[ext_resource type="Texture2D" uid="uid://bea442gustw5q" path="res://textures/Rock035_1K-JPG_Roughness.jpg" id="3_34pdb"]
+[ext_resource type="ArrayMesh" uid="uid://cowp16ptavrdc" path="res://assets/cave.obj" id="4_iqfo0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2h4d"]
+albedo_texture = ExtResource("1_vrcn1")
+metallic_specular = 0.17
+roughness_texture = ExtResource("3_34pdb")
+normal_enabled = true
+normal_texture = ExtResource("2_egl4p")
+uv1_triplanar = true
+
+[node name="Cave2" type="MeshInstance3D"]
+transform = Transform3D(-2.61296, 3.96668e-08, -2.24963e-07, 0, 2.57326, 0.453737, 2.28432e-07, 0.453735, -2.57327, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_q2h4d")
+mesh = ExtResource("4_iqfo0")
+skeleton = NodePath("../..")

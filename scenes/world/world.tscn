@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://dquriscrmv3uh"]
+
+[ext_resource type="Script" uid="uid://dgs6blueped1r" path="res://scripts/world/world.gd" id="1_1yooq"]
+[ext_resource type="Script" uid="uid://ttdsbt1jcvgb" path="res://scripts/world/camera_3d.gd" id="2_gb53w"]
+[ext_resource type="PackedScene" uid="uid://3kln8wlvkof2" path="res://scenes/characters/carlitos.tscn" id="3_5qq27"]
+[ext_resource type="Script" uid="uid://yvyqyjv0gvmr" path="res://scripts/world/chunck_loader.gd" id="4_dlabj"]
+[ext_resource type="Script" uid="uid://bqbj732cbojsg" path="res://scripts/world/background_holder.gd" id="5_srmg5"]
+[ext_resource type="AudioStream" uid="uid://b54cohqsm8lsn" path="res://audios/songs/Mysthical theme.mp3" id="6_umvgx"]
+[ext_resource type="PackedScene" uid="uid://cswhoqpikkl0m" path="res://scenes/characters/ballholder.tscn" id="7_mxkvs"]
+[ext_resource type="Texture2D" uid="uid://bka4q7msvxa5o" path="res://assets/images/hand-drawn-cartoon-coffee-with-beans-free-png.png" id="8_m114p"]
+[ext_resource type="PackedScene" uid="uid://bl6seet6ajeg0" path="res://scenes/world/platform_static.tscn" id="9_71ii3"]
+
+[sub_resource type="Environment" id="Environment_4tld8"]
+fog_enabled = true
+fog_light_color = Color(0.346477, 0.376698, 0.424202, 1)
+fog_light_energy = 1.67
+fog_density = 0.0205
+fog_height = -86.23
+fog_height_density = 1.0105
+volumetric_fog_enabled = true
+volumetric_fog_anisotropy = -0.44
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1.00284, 0, 0, 0, 1.00284, 0, 0, 0, 1.00284, 0, 0.658477, 0)
+script = ExtResource("1_1yooq")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4tld8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.493827, 0.731004, -0.460821, 0.836924, 0.536731, -0.0454481, 0.215129, -0.41005, -0.881003, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(0.997168, 0, 0, 0, 0.994105, 0.078098, 0, -0.078098, 0.994105, -0.00517634, 3.50382, 4.10015)
+script = ExtResource("2_gb53w")
+target = NodePath("../Carlitos")
+
+[node name="Carlitos" parent="." instance=ExtResource("3_5qq27")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.17198, 0)
+
+[node name="chunck_holder" type="Node3D" parent="."]
+transform = Transform3D(0.994879, 0, 0, 0, 0.994879, 0, 0, 0, 0.994879, 0, 0, 0)
+script = ExtResource("4_dlabj")
+
+[node name="background_holder" type="Node3D" parent="."]
+script = ExtResource("5_srmg5")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99839, -0.0114517, -0.0555504, -0.000188347, -0.978731, 0.20515, -0.0567181, 0.20483, 0.977153, -0.0706087, 3.01204, 5.63363)
+light_color = Color(0.197937, 0.197937, 0.197937, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_umvgx")
+autoplay = true
+
+[node name="Ballholder" parent="." instance=ExtResource("7_mxkvs")]
+transform = Transform3D(0.997168, 0, 0, 0, 0.997168, 0, 0, 0, 0.997168, -1.33407, 1.38473, 2.03447)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 1.001
+anchor_bottom = 0.997
+offset_right = -0.1521
+offset_bottom = -0.0560303
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 56.0
+texture = ExtResource("8_m114p")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 18.0
+offset_right = 102.0
+offset_bottom = 41.0
+
+[node name="PlatformStatic" parent="." instance=ExtResource("9_71ii3")]
+transform = Transform3D(0.99717, 0, 0, 0, 0.99717, 0, 0, 0, 0.99717, 0, 2.21173, 0)
+
+[connection signal="player_fell" from="Carlitos" to="." method="_on_carlitos_player_fell"]
+[connection signal="coffee_picked_up" from="chunck_holder" to="." method="_on_chunck_holder_coffee_picked_up"]
+[connection signal="game_ending" from="chunck_holder" to="." method="_on_chunck_holder_game_ending"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="player_entered" from="Ballholder" to="." method="_on_ballholder_player_entered"]

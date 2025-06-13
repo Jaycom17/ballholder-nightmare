@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfqoxh2qbc6oq"]
+
+[ext_resource type="VideoStream" uid="uid://db44pbns4bypc" path="res://assets/videos/creditos-musica-concopy_ogv.ogv" id="1_72pmb"]
+[ext_resource type="Script" uid="uid://cl5ca87wsr6bc" path="res://scripts/ui/credits.gd" id="1_epx3h"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_epx3h")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_72pmb")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

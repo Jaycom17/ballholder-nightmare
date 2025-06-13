@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://c47fe5um36q15"]
+
+[ext_resource type="Script" uid="uid://bt47uxk8h4kip" path="res://scripts/ui/options.gd" id="1_shw8h"]
+[ext_resource type="FontFile" uid="uid://cds0vf62j4yqu" path="res://fonts/creepster/Creepster-Regular.ttf" id="2_3hjeq"]
+[ext_resource type="Texture2D" uid="uid://bmanoppc18vc7" path="res://assets/images/4.png" id="2_yuibf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ip24"]
+bg_color = Color(0.890196, 0.211765, 0.239216, 0.419608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3on1o"]
+bg_color = Color(0.490196, 0.109804, 0.160784, 0.0313726)
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shw8h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yuibf")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.691
+anchor_top = 0.264
+anchor_right = 0.914
+anchor_bottom = 0.319
+offset_left = -53.032
+offset_top = -3.07201
+offset_right = 0.0720215
+offset_bottom = 0.287994
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3hjeq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ip24")
+text = "VOLVER"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.604
+anchor_top = 0.029
+anchor_right = 0.969
+anchor_bottom = 0.227
+offset_left = 0.191956
+offset_top = 0.208
+offset_right = -0.288086
+offset_bottom = -0.0960083
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3hjeq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3on1o")
+text = "NO TENEMOS OPCIONES EL BALLHOLDER 
+SE LAS COMIO PENSANDO QUE ERAN 
+UNOS HUEVOS"
+
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
