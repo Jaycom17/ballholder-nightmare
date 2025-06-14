@@ -7,7 +7,6 @@ Carlitos ha quedado atrapado en un extraño y perturbador sueño del que no pued
 ```bash
 git clone https://github.com/Jaycom17/ballholder-nightmare.git
 cd ballholder-nightmare
-# Instala dependencias si es necesario
 ```
 
 Los archivos coo imagenes modelos y demas se gestionan mediante git lfs, por lo que es necesario tenerlo instalado.
